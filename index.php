@@ -59,9 +59,9 @@
 
 <body>
     <h1 class="text-center">Route Detection and
-Coordinate Mapping
-Device using Wi-Fi
-Signal</h1>
+        Coordinate Mapping
+        Device using Wi-Fi
+        Signal</h1>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -70,12 +70,23 @@ Signal</h1>
 
 
     <body>
+    
 
         <div id="map"></div>
         <script>
             function initMap() {
                 var mapOptions = {
                     center: {
+                        <?php
+                            $conn = mysqli_connect("localhost", "root", "", "map");
+                            $sql = "SELECT lat,lng  FROM maping WHERE id = 1 ";
+                            $result = $conn->query($sql);
+                             // output data of each row
+                        $row = $result->fetch_assoc();
+                        $lat = $row["lat"] ;
+                        $lng = $row["lng"];
+    
+                        ?>
                         lat: 13.796343,
                         lng: 100.322915
                     },
@@ -161,18 +172,36 @@ Signal</h1>
         </select>
 
 
+        <a href="http://127.0.0.1/googleapi/database.php">Create database </a>
 
-        <table>
-            <tr>
-                <th>MAC</th>
-            </tr>
-            <?php
+
+            <div class="form-group">
+                <label for="usr">ROUTE:</label>
+                <input type="int" class="form-control" id="usr">
+            </div>
+    
+
+
+
+        <div class="container">
+
+            <table>
+                <tr>
+                    <th>MAC</th>
+                </tr>
+                <?php
    $conn = mysqli_connect("localhost", "root", "", "map");
      // Check connection
      if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
      }
-     $sql = "SELECT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 2 ";
+
+
+     $result_row = mysqli_query($conn,"SELECT DISTINCT name FROM maping");
+     $num_rows = mysqli_num_rows($result_row);
+
+
+     $sql = "SELECT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) = $num_rows ";
      $result = $conn->query($sql);
      if ($result->num_rows > 0) {
       // output data of each row
@@ -184,8 +213,9 @@ Signal</h1>
    } else { echo "0 results"; }
    $conn->close();
    ?>
-        </table>
+            </table>
 
+        </div>
 
 
 
