@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title Page</title>
+    <title>Route Detection and Coordinate Mapping Device</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -149,8 +149,6 @@
                     flightPath.setMap(maps);
                 });
 
-
-
             }
         </script>
         <script async defer <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvKYJq_cHLpj6GOfvZghyNgLoy1Da3quk&callback=initMap">
@@ -170,27 +168,23 @@
    }
    ?>
         </select>
+        <button type="button" class="btn btn-default">Confirm</button>
+
+<a href="http://127.0.0.1/googleapi/phase2searchSIGNAL.php">Put data to database  || </a>
+
+<a href="http://127.0.0.1/googleapi/database.php">Create database </a>
 
 
-        <a href="http://127.0.0.1/googleapi/database.php">Create database </a>
-
-
-            <div class="form-group">
-                <label for="usr">ROUTE:</label>
-                <input type="int" class="form-control" id="usr">
-            </div>
-    
-
+      
 
 
         <div class="container">
-
             <table>
                 <tr>
-                    <th>MAC</th>
+                    <th>MAC FOLLOW THE PATH</th>
                 </tr>
                 <?php
-   $conn = mysqli_connect("localhost", "root", "", "map");
+     $conn = mysqli_connect("localhost", "root", "", "map");
      // Check connection
      if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
