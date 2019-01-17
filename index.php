@@ -70,7 +70,7 @@
 
 
     <body>
-    
+
 
         <div id="map"></div>
         <script>
@@ -156,7 +156,7 @@
 
         <?php
   $mysqli = NEW MySQLi("localhost", "root", "", "map");
-   $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
+   $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM qu GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
  ?>
 
         <select name="MAC" id="MAC">
@@ -170,18 +170,18 @@
         </select>
         <button type="button" class="btn btn-default">Confirm</button>
 
-<a href="http://127.0.0.1/googleapi/phase2searchSIGNAL.php">Put data to database  || </a>
-
-<a href="http://127.0.0.1/googleapi/database.php">Create database </a>
 
 
-      
+        <a href="http://127.0.0.1/googleapi/phase2searchSIGNAL.php">Put data to database || </a>
+
+        <a href="http://127.0.0.1/googleapi/database.php">Create database </a>
+
 
 
         <div class="container">
             <table>
                 <tr>
-                    <th>MAC FOLLOW THE PATH</th>
+                    <th>MAC that detect all devices</th>
                 </tr>
                 <?php
      $conn = mysqli_connect("localhost", "root", "", "map");
@@ -195,13 +195,13 @@
      $num_rows = mysqli_num_rows($result_row);
 
 
-     $sql = "SELECT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) = $num_rows ";
+     $sql = "SELECT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) >= $num_rows ";
      $result = $conn->query($sql);
      if ($result->num_rows > 0) {
       // output data of each row
       while($row = $result->fetch_assoc()) {
         echo "<tr><td>" . $row["src"] . "</td><tr>";
-    //   echo "<tr><td>" . $row["name"]. "</td><td>" . $row["src"] . "</td><td>". $row["sig"]. "</td><td>". $row["tst"]. "</td><tr>";
+   
    }
    echo "</table>";
    } else { echo "0 results"; }
