@@ -1,9 +1,18 @@
 <?php
 
-header('Content-Type: application/json');
-  $objConnect = mysqli_connect("localhost", "root", "", "map");
+if(isset($_POST['submit'])){
+  if(!empty($_POST['MAC'])) {
+ // echo "<span>You have selected :</span><br/>";
+  $target = $_POST['MAC'];
+  }
+  else { echo "<span>Please Select Atleast One .</span><br/>";}
+  }
 
-  $sql = "SELECT src,name  FROM qu WHERE src LIKE '0C:8F:FF:17:9F:9C' ";
+
+// header('Content-Type: application/json');
+
+  $objConnect = mysqli_connect("localhost", "root", "", "map");
+  $sql = "SELECT src,name  FROM qu WHERE src LIKE '$target' ORDER BY time ASC";
   $result = $objConnect->query($sql);
   $resultArray = array();
 
@@ -20,10 +29,15 @@ header('Content-Type: application/json');
   }
 
 }
-  echo json_encode($resultArray);
+ // echo json_encode($resultArray);
+ 
+echo "Target :: $target ";
+$json =  json_encode($resultArray);
+//echo"$json";
 
-  //  $resultArray = json_decode(json_encode($resultArray), true);
-  //  print_r($resultArray);
-
+file_put_contents('dataj.json', $json);
 
 ?>
+
+
+

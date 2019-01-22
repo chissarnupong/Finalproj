@@ -17,15 +17,39 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+    <style type = "text/css">
+      h1 { font-size: 24pt;
+        
+        
+      }
+      body{
+        background-color: #d0f0f6;
+      }
+
+     #wrapper { position: relative; }
+     #over_map { position: absolute; top: 480px; left: 10px; z-index: 99; }
+ 
+    </style>   
+
     <style>
-        table {
-      border-collapse: collapse;
-      width: 50%;
-      color: #588c7e;
+
+.table-wrapper-scroll-y {
+display: block;
+max-height: 200px;
+overflow-y: auto;
+-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+        /* table {
+            table-layout: auto;
+        width: 180px;  
+        margin:10px;
+        border-collapse: collapse;
+         width: 25%;
+        color: #588c7e;
       font-family: monospace;
       font-size: 25px;
       text-align: left;
-        }
+        } */
      th {
       background-color: #588c7e;
       color: white;
@@ -37,7 +61,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript">
-        < script src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" >
+    //    < script src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" >
     </script>
     <meta charset="utf-8">
     <style>
@@ -72,7 +96,7 @@
     <body>
 
 
-        <div id="map"></div>
+       <div id="map"></div>
         <script>
             function initMap() {
                 var mapOptions = {
@@ -122,11 +146,12 @@
                     });
                 });
 
+ 
 
                 //////////////////// PolyLine /////////////////////////////////////////////
 
                 var flightPlanCoordinates = [];
-                $.getJSON("jsonpath.php", function (json) {
+                $.getJSON("dataj.json",function (json) {
                     for (var i = 0; i < json.length; i++) {
                         var latLng = new google.maps.LatLng((json[i].lat), (json[i].lng));
                         flightPlanCoordinates.push(latLng);
@@ -150,25 +175,38 @@
                 });
 
             }
+
         </script>
         <script async defer <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvKYJq_cHLpj6GOfvZghyNgLoy1Da3quk&callback=initMap">
         </script>
 
+
         <?php
   $mysqli = NEW MySQLi("localhost", "root", "", "map");
+  
+  ////////////////////////////////////////////// QU ////////////////////////////
    $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM qu GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
- ?>
 
-        <select name="MAC" id="MAC">
-            <?php
+  /////////////////////////////////////////////////// select////////////////////////////////
+ ?>
+        <form action="index.php" method="post">
+            <select name="MAC">
+            <option disabled selected value> -- Select  -- </option>
+                <?php
    while($row = $Mac->fetch_assoc())
    {
     $mac = $row['src']; 
     echo "<option value='$mac'>$mac</option>";
    }
    ?>
-        </select>
-        <button type="button" class="btn btn-default">Confirm</button>
+            </select>
+            <?php include'jsonpath.php';
+        
+        ?>
+            <input name="submit" type="submit" value="Confirm">
+        </form>
+
+
 
 
 
@@ -178,8 +216,9 @@
 
 
 
-        <div class="container">
-            <table>
+        <div id="over_map" class="table-wrapper-scroll-y">
+        
+            <table class="table table-bordered table-striped">
                 <tr>
                     <th>MAC that detect all devices</th>
                 </tr>
@@ -190,6 +229,7 @@
       die("Connection failed: " . $conn->connect_error);
      }
 
+ 
 
      $result_row = mysqli_query($conn,"SELECT DISTINCT name FROM maping");
      $num_rows = mysqli_num_rows($result_row);
@@ -201,16 +241,18 @@
       // output data of each row
       while($row = $result->fetch_assoc()) {
         echo "<tr><td>" . $row["src"] . "</td><tr>";
-   
+       
    }
-   echo "</table>";
+   //echo "</table>";
    } else { echo "0 results"; }
    $conn->close();
+
+
+   
    ?>
             </table>
 
         </div>
-
 
 
 
