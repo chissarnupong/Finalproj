@@ -8,11 +8,11 @@ if(isset($_POST['submit'])){
   else { echo "<span>Please Select Atleast One .</span><br/>";}
   }
 
-
+if(!empty($target)){
 // header('Content-Type: application/json');
 
   $objConnect = mysqli_connect("localhost", "root", "", "map");
-  $sql = "SELECT src,name  FROM qu WHERE src LIKE '$target' ORDER BY time ASC";
+  $sql = "SELECT src,name  FROM info WHERE src LIKE '$target' ORDER BY recTime ASC";
   $result = $objConnect->query($sql);
   $resultArray = array();
 
@@ -32,11 +32,12 @@ if(isset($_POST['submit'])){
  // echo json_encode($resultArray);
  
 echo "Target :: $target ";
+
 $json =  json_encode($resultArray);
 //echo"$json";
 
-file_put_contents('dataj.json', $json);
-
+file_put_contents('datajson.json', $json);
+}
 ?>
 
 

@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 } 
 
 // Create database
-$sql = "CREATE DATABASE map1";
+$sql = "CREATE DATABASE map";
 if ($conn->query($sql) === TRUE) {
     echo "Database created successfully";
 } else {
@@ -24,11 +24,10 @@ if ($conn->query($sql) === TRUE) {
 $info = "CREATE TABLE info (
 name VARCHAR(30)  , 
 src VARCHAR(30) ,
-tim INT(6) ,
-sig INT(6) NOT NULL,
-tst INT(6) NOT NULL,
-reg_date TIMESTAMP,
-primary key (name, src, tim)
+sig VARCHAR(11) ,
+recDate VARCHAR(11) ,
+recTime VARCHAR(11) ,
+primary key (name, src, recTime)
 )";
 
 $maping = "CREATE TABLE maping (

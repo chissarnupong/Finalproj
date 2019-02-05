@@ -17,39 +17,38 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    <style type = "text/css">
-      h1 { font-size: 24pt;
-        
-        
-      }
-      body{
-        background-color: #d0f0f6;
-      }
+    <style type="text/css">
+        h1 {
+            font-size: 24pt;
 
-     #wrapper { position: relative; }
-     #over_map { position: absolute; top: 480px; left: 10px; z-index: 99; }
- 
-    </style>   
+
+        }
+
+        body {
+            background-color: #d0f0f6;
+        }
+
+        #wrapper {
+            position: relative;
+        }
+
+        #over_map {
+            position: absolute;
+            top: 480px;
+            left: 10px;
+            z-index: 99;
+        }
+    </style>
 
     <style>
 
-.table-wrapper-scroll-y {
+        .table-wrapper-scroll-y {
 display: block;
 max-height: 200px;
 overflow-y: auto;
 -ms-overflow-style: -ms-autohiding-scrollbar;
 }
-        /* table {
-            table-layout: auto;
-        width: 180px;  
-        margin:10px;
-        border-collapse: collapse;
-         width: 25%;
-        color: #588c7e;
-      font-family: monospace;
-      font-size: 25px;
-      text-align: left;
-        } */
+
      th {
       background-color: #588c7e;
       color: white;
@@ -61,7 +60,7 @@ overflow-y: auto;
     <meta name="viewport" content="initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript">
-    //    < script src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" >
+        //    < script src = "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" >
     </script>
     <meta charset="utf-8">
     <style>
@@ -96,7 +95,7 @@ overflow-y: auto;
     <body>
 
 
-       <div id="map"></div>
+        <div id="map"></div>
         <script>
             function initMap() {
                 var mapOptions = {
@@ -116,13 +115,6 @@ overflow-y: auto;
                     },
                     zoom: 18,
                 }
-
-                // function initMap() {
-                // var mapOptions = {
-                //     zoom: 3,
-                //     center: {lat: 0, lng: -180},
-                //     mapTypeId: 'terrain'
-                //   });
 
                 var maps = new google.maps.Map(document.getElementById("map"), mapOptions);
 
@@ -151,7 +143,7 @@ overflow-y: auto;
                 //////////////////// PolyLine /////////////////////////////////////////////
 
                 var flightPlanCoordinates = [];
-                $.getJSON("dataj.json",function (json) {
+                $.getJSON("datajson.json",function (json) {
                     for (var i = 0; i < json.length; i++) {
                         var latLng = new google.maps.LatLng((json[i].lat), (json[i].lng));
                         flightPlanCoordinates.push(latLng);
@@ -172,6 +164,7 @@ overflow-y: auto;
 
                     });
                     flightPath.setMap(maps);
+                    
                 });
 
             }
@@ -182,16 +175,15 @@ overflow-y: auto;
 
 
         <?php
+    
   $mysqli = NEW MySQLi("localhost", "root", "", "map");
-  
-  ////////////////////////////////////////////// QU ////////////////////////////
-   $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM qu GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
+   $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
 
   /////////////////////////////////////////////////// select////////////////////////////////
  ?>
         <form action="index.php" method="post">
             <select name="MAC">
-            <option disabled selected value> -- Select  -- </option>
+                <option disabled selected value> -- Select -- </option>
                 <?php
    while($row = $Mac->fetch_assoc())
    {
@@ -206,18 +198,12 @@ overflow-y: auto;
             <input name="submit" type="submit" value="Confirm">
         </form>
 
-
-
-
-
-        <a href="http://127.0.0.1/googleapi/phase2searchSIGNAL.php">Put data to database || </a>
-
+        <a href="http://127.0.0.1/googleapi/putinfo.php">Put data to database || </a>
         <a href="http://127.0.0.1/googleapi/database.php">Create database </a>
 
 
-
         <div id="over_map" class="table-wrapper-scroll-y">
-        
+
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>MAC that detect all devices</th>
@@ -248,7 +234,7 @@ overflow-y: auto;
    $conn->close();
 
 
-   
+ 
    ?>
             </table>
 
