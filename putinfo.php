@@ -127,16 +127,16 @@
                 //code optimise with $temp to simplify repeated method
                 if ($ss+floatval($time)<60) {
                   $ss = $ss+floatval($time);
-                  $recTime = $recTime.$hh.":".$mm;
+                  $recTime = $recTime.$hh.".".$mm;
                 }elseif ($mm+floor(($ss+floatval($time))/60)<60) {
                   $mm=$mm+floor(($ss+floatval($time))/60);
                   $ss=($ss+floatval($time))-(60*floor(($ss+floatval($time))/60));
-                  $recTime = $recTime.$hh.":".$mm;
+                  $recTime = $recTime.$hh.".".$mm;
                 }elseif ($hh+(($mm+(($ss+floatval($time))/60))/60)<24) {
                   $hh=$hh+floor(($mm+(floor($ss+floatval($time))/60))/60);
                   $mm=($mm+(floor($ss+floatval($time))/60))%60;
                   $ss=($ss+floatval($time))-(60*floor(($ss+floatval($time))/60));
-                  $recTime = $recTime.$hh.":".$mm;
+                  $recTime = $recTime.$hh.".".$mm;
                   //.":".$ss
                 }//else //incase change the day
 

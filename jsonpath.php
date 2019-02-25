@@ -36,7 +36,7 @@ echo "Target :: $target ";
 $json =  json_encode($resultArray);
 //echo"$json";
 
-file_put_contents('datajson.json', $json);
+file_put_contents('datajson1.json', $json);
 }
 ?>
 

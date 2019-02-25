@@ -38,6 +38,13 @@
             left: 10px;
             z-index: 99;
         }
+
+        #over_map2 {
+            position: absolute;
+            top: 700px;
+            left: 10px;
+            z-index: 99;
+        }
     </style>
 
     <style>
@@ -102,13 +109,15 @@ overflow-y: auto;
                     center: {
                         <?php
                             $conn = mysqli_connect("localhost", "root", "", "map");
-                            $sql = "SELECT lat,lng  FROM maping WHERE id = 1 ";
-                            $result = $conn->query($sql);
+                           // $sql = "SELECT lat,lng  FROM maping WHERE id = 1 ";
+                           // $result = $conn->query($sql);
                              // output data of each row
-                        $row = $result->fetch_assoc();
-                        $lat = $row["lat"] ;
-                        $lng = $row["lng"];
+                       // $row = $result->fetch_assoc();
+                        // $lat = $row["lat"] ;
+                        // $lng = $row["lng"];
     
+                        $lat = 13.796343 ;
+                        $lng = 100.322915;
                         ?>
                         lat: 13.796343,
                         lng: 100.322915
@@ -143,7 +152,7 @@ overflow-y: auto;
                 //////////////////// PolyLine /////////////////////////////////////////////
 
                 var flightPlanCoordinates = [];
-                $.getJSON("datajson.json",function (json) {
+                $.getJSON("datajson1.json",function (json) {
                     for (var i = 0; i < json.length; i++) {
                         var latLng = new google.maps.LatLng((json[i].lat), (json[i].lng));
                         flightPlanCoordinates.push(latLng);
@@ -178,9 +187,10 @@ overflow-y: auto;
     
   $mysqli = NEW MySQLi("localhost", "root", "", "map");
    $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
-
-  /////////////////////////////////////////////////// select////////////////////////////////
  ?>
+
+        <!-- /////////////////////////////////////////////////// select //////////////////////////////// -->
+
         <form action="index.php" method="post">
             <select name="MAC">
                 <option disabled selected value> -- Select -- </option>
@@ -198,9 +208,12 @@ overflow-y: auto;
             <input name="submit" type="submit" value="Confirm">
         </form>
 
+        <!--  ///////////////////////////////      LINK        /////////////////////////////////////       //////////////////////////////////          ///////////////// -->
+
         <a href="http://127.0.0.1/googleapi/putinfo.php">Put data to database || </a>
         <a href="http://127.0.0.1/googleapi/database.php">Create database </a>
 
+        <!-- //////////////////////////////////////////////////////////////////////    -->
 
         <div id="over_map" class="table-wrapper-scroll-y">
 
@@ -240,6 +253,60 @@ overflow-y: auto;
 
         </div>
 
+        <form>
+            <div class="form-group" action="" method="get">
+                <label>Select Time</label>
+                <input type="Start_Time" name="Start_Time" class="form-control" id="Start_Time" placeholder="HH.MM">
+
+            </div>
+            <div class="form-group">
+                <input type="End_Time" name="End_Time" class="form-control" id="End_Time" placeholder="HH.MM">
+
+            </div>
+
+            <div class="form-group">
+                <input type="Date" name="Date" class="form-control" id="Date" placeholder="YYYY-MM-DD">
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+
+        <?php $a =  $_GET['Start_Time']; ?>
+        <?php $b =  $_GET['End_Time']; ?>
+        <?php $c =  $_GET['Date']; ?>
+<!--////////////////////////////////////////////////   table    /////////////////////////////////////////////////////////// -->
+ 
+
+        <div id="over_map2" class="table-wrapper-scroll-y">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>In Between Time</th>
+                    <?php echo "$a - $b" ;?>
+                </tr>
+                <?php
+$conn = mysqli_connect("localhost", "root", "", "map");
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+
+// $sql = "SELECT src  FROM info WHERE recDate LIKE '$c'  AND recTime BETWEEN $a AND $b  GROUP BY src  ";
+$sql = "SELECT src  FROM info WHERE recDate AND recTime BETWEEN $a AND $b  GROUP BY src  ";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+// output data of each row
+while($row = $result->fetch_assoc()) {
+echo "<tr><td>" . $row["src"] . "</td><tr>";
+
+}
+//echo "</table>";
+} else { echo "0 results"; }
+$conn->close();
+?>
+            </table>
+        </div>
 
 
     </body>

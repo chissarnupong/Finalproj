@@ -39,8 +39,7 @@ primary key (name, src, recTime)
 )";
 
 $maping = "CREATE TABLE maping (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY ,
-    name VARCHAR(30) , 
+    name VARCHAR(30) PRIMARY KEY , 
     lat VARCHAR(30) NOT NULL,
     lng VARCHAR(30) NOT NULL,
     reg_date TIMESTAMP
