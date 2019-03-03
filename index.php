@@ -2,6 +2,7 @@
 <html lang="">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -88,10 +89,7 @@ overflow-y: auto;
 </head>
 
 <body>
-    <h1 class="text-center">Route Detection and
-        Coordinate Mapping
-        Device using Wi-Fi
-        Signal</h1>
+    <h1 class="text-center">Route Detection and Coordinate Mapping Device using Wi-Fi Signal</h1>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -152,7 +150,7 @@ overflow-y: auto;
                 //////////////////// PolyLine /////////////////////////////////////////////
 
                 var flightPlanCoordinates = [];
-                $.getJSON("datajson1.json",function (json) {
+                $.getJSON("datajson.json",function (json) {
                     for (var i = 0; i < json.length; i++) {
                         var latLng = new google.maps.LatLng((json[i].lat), (json[i].lng));
                         flightPlanCoordinates.push(latLng);
@@ -184,7 +182,12 @@ overflow-y: auto;
 
 
         <?php
-    
+        // header("Cache-Control: no-cache, must-revalidate");
+        // header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        // header("Content-Type: application/xml; charset=utf-8");
+        //error_reporting(E_ERROR | E_PARSE);
+        error_reporting(0);
+   
   $mysqli = NEW MySQLi("localhost", "root", "", "map");
    $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
  ?>
@@ -222,6 +225,7 @@ overflow-y: auto;
                     <th>MAC that detect all devices</th>
                 </tr>
                 <?php
+                flush();
      $conn = mysqli_connect("localhost", "root", "", "map");
      // Check connection
      if ($conn->connect_error) {
@@ -256,16 +260,16 @@ overflow-y: auto;
         <form>
             <div class="form-group" action="" method="get">
                 <label>Select Time</label>
-                <input type="Start_Time" name="Start_Time" class="form-control" id="Start_Time" placeholder="HH.MM">
+                <input type="Start_Time" name="Start_Time" class="form-control" id="Start_Time" value="" placeholder="HH.MM">
 
             </div>
             <div class="form-group">
-                <input type="End_Time" name="End_Time" class="form-control" id="End_Time" placeholder="HH.MM">
+                <input type="End_Time" name="End_Time" class="form-control" id="End_Time" value="" placeholder="HH.MM">
 
             </div>
 
             <div class="form-group">
-                <input type="Date" name="Date" class="form-control" id="Date" placeholder="YYYY-MM-DD">
+                <input type="Date" name="Date" class="form-control" id="Date" value="" placeholder="YYYY-MM-DD">
 
             </div>
 
@@ -276,8 +280,8 @@ overflow-y: auto;
         <?php $a =  $_GET['Start_Time']; ?>
         <?php $b =  $_GET['End_Time']; ?>
         <?php $c =  $_GET['Date']; ?>
-<!--////////////////////////////////////////////////   table    /////////////////////////////////////////////////////////// -->
- 
+        <!--////////////////////////////////////////////////   table    /////////////////////////////////////////////////////////// -->
+
 
         <div id="over_map2" class="table-wrapper-scroll-y">
             <table class="table table-bordered table-striped">
@@ -286,6 +290,7 @@ overflow-y: auto;
                     <?php echo "$a - $b" ;?>
                 </tr>
                 <?php
+                flush();
 $conn = mysqli_connect("localhost", "root", "", "map");
 // Check connection
 if ($conn->connect_error) {
@@ -308,7 +313,9 @@ $conn->close();
             </table>
         </div>
 
-
+<?php
+error_reporting(0);
+?>
     </body>
 
 </html>

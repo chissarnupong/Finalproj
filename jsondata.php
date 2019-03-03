@@ -10,5 +10,5 @@
   array_push($resultArray, $obResult);
   }
   echo json_encode($resultArray);
-
+  flush();
 ?>
