@@ -114,11 +114,11 @@ overflow-y: auto;
                         // $lat = $row["lat"] ;
                         // $lng = $row["lng"];
     
-                        $lat = 13.796343 ;
-                        $lng = 100.322915;
+                        $lat = 13.796472 ;
+                        $lng = 100.324027;
                         ?>
-                        lat: 13.796343,
-                        lng: 100.322915
+                        lat: 13.796472,
+                        lng: 100.324027
                     },
                     zoom: 18,
                 }
@@ -150,7 +150,8 @@ overflow-y: auto;
                 //////////////////// PolyLine /////////////////////////////////////////////
 
                 var flightPlanCoordinates = [];
-                $.getJSON("datajson.json",function (json) {
+                $.getJSON("datajson2.json",function (json) {
+                 // flightPath.setMap(null);
                     for (var i = 0; i < json.length; i++) {
                         var latLng = new google.maps.LatLng((json[i].lat), (json[i].lng));
                         flightPlanCoordinates.push(latLng);
@@ -182,14 +183,14 @@ overflow-y: auto;
 
 
         <?php
-        // header("Cache-Control: no-cache, must-revalidate");
+        //  header("Cache-Control: no-cache, must-revalidate");
         // header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         // header("Content-Type: application/xml; charset=utf-8");
-        //error_reporting(E_ERROR | E_PARSE);
+        // error_reporting(E_ERROR | E_PARSE);
         error_reporting(0);
    
   $mysqli = NEW MySQLi("localhost", "root", "", "map");
-   $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
+   $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 0 ");
  ?>
 
         <!-- /////////////////////////////////////////////////// select //////////////////////////////// -->
@@ -298,7 +299,7 @@ die("Connection failed: " . $conn->connect_error);
 }
 
 // $sql = "SELECT src  FROM info WHERE recDate LIKE '$c'  AND recTime BETWEEN $a AND $b  GROUP BY src  ";
-$sql = "SELECT src  FROM info WHERE recDate AND recTime BETWEEN $a AND $b  GROUP BY src  ";
+$sql = "SELECT src  FROM info WHERE    recTime BETWEEN $a AND $b AND recDate = '$c'  GROUP BY src  ";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row

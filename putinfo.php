@@ -88,8 +88,33 @@
               //echo "month  : ".$month."<br>"; //put any echo line to DB
               //echo "date   : ".$date."<br>";
               //echo "year   : ".$year."<br>";
-              //concat string to make yyyy-mm-dd
-              $dateTime = $dateTime.$year."-".$month."-".$date;
+              //concat string to make mm/dd/yyyy
+              if($month=="jan"){
+                $month="01";
+              }elseif ($month=="feb") {
+                $month="02";
+              }elseif ($month=="mar") {
+                $month="03";
+              }elseif ($month=="apr") {
+                $month="04";
+              }elseif ($month=="may") {
+                $month="05";
+              }elseif ($month=="jun") {
+                $month="06";
+              }elseif ($month=="jul") {
+                $month="07";
+              }elseif ($month=="aug") {
+                $month="08";
+              }elseif ($month=="sep") {
+                $month="09";
+              }elseif ($month=="oct") {
+                $month="10";
+              }elseif ($month=="nov") {
+                $month="11";
+              }elseif ($month=="dec") {
+                $month="12";
+              }
+              $dateTime = $dateTime.$year."/".$month."/".$date;
 
 
               //echo "subHH  : ".$submitHH."<br>";
@@ -127,18 +152,22 @@
                 //code optimise with $temp to simplify repeated method
                 if ($ss+floatval($time)<60) {
                   $ss = $ss+floatval($time);
-                  $recTime = $recTime.$hh.".".$mm;
+                  //$recTime = $recTime.$hh.".".$mm;
                 }elseif ($mm+floor(($ss+floatval($time))/60)<60) {
                   $mm=$mm+floor(($ss+floatval($time))/60);
                   $ss=($ss+floatval($time))-(60*floor(($ss+floatval($time))/60));
-                  $recTime = $recTime.$hh.".".$mm;
+                  //$recTime = $recTime.$hh.".".$mm;
                 }elseif ($hh+(($mm+(($ss+floatval($time))/60))/60)<24) {
                   $hh=$hh+floor(($mm+(floor($ss+floatval($time))/60))/60);
                   $mm=($mm+(floor($ss+floatval($time))/60))%60;
                   $ss=($ss+floatval($time))-(60*floor(($ss+floatval($time))/60));
-                  $recTime = $recTime.$hh.".".$mm;
+                  
                   //.":".$ss
-                }//else //incase change the day
+                }
+                if(intval($mm)<10){
+                  $mm="0".$mm;
+                }
+                $recTime = $recTime.$hh.".".$mm;//else //incase change the day
 
               }
 
@@ -180,7 +209,7 @@
               //echo "timeF  : ".$timeFloat."<br>";
             //}
             if ($clientName!=""&&$dateTime!=""&&$recTime!=""&&$channel!=""&&$signal!=""&&$src!="") {
-              if(intval($signal)>-85){ //add signal strength filter
+              if(intval($signal)>-95){ //add signal strength filter
                 echo "Client Name        : ".$clientName."<br>";
                 echo "Recieved Date      : ".$dateTime."<br>";
                 echo "Recieved Timestamp : ".$recTime."<br>";
@@ -195,7 +224,7 @@
                     die("ERROR: Could not connect. " . mysqli_connect_error());
                 }
                 $sql = "INSERT INTO info (name, src, sig, recDate, recTime) VALUES ('$clientName','$src', '$signal', '$dateTime' , '$recTime')";
-    
+
                 if(mysqli_query($link, $sql)){
                   echo "Records added successfully.";
                } else{
@@ -242,23 +271,10 @@
           fclose($file);
           echo "<br>"."----------------------------------"."<br>";
 
-          function Redirect($url, $permanent = false)
-          {
-              if (headers_sent() === false)
-              {
-                  header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
-              }
-              exit();
-          }
-          Redirect('http://127.0.0.1/googleapi/', false);
-
-          
         }
       }
 
   }
-
-
    ?>
 </body>
 </html>
