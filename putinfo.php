@@ -209,7 +209,7 @@
               //echo "timeF  : ".$timeFloat."<br>";
             //}
             if ($clientName!=""&&$dateTime!=""&&$recTime!=""&&$channel!=""&&$signal!=""&&$src!="") {
-              if(intval($signal)>-95){ //add signal strength filter
+              if(intval($signal)>-100){ //add signal strength filter
                 echo "Client Name        : ".$clientName."<br>";
                 echo "Recieved Date      : ".$dateTime."<br>";
                 echo "Recieved Timestamp : ".$recTime."<br>";

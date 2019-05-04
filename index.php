@@ -35,33 +35,42 @@
 
         #over_map {
             position: absolute;
-            top: 480px;
+            top: 280px;
             left: 10px;
             z-index: 99;
         }
 
         #over_map2 {
             position: absolute;
-            top: 700px;
+            top: 300px;
+            left: 10px;
+            z-index: 99;
+        }
+
+        #over_map3 {
+            position: absolute;
+            top: 480px;
             left: 10px;
             z-index: 99;
         }
     </style>
 
     <style>
-
         .table-wrapper-scroll-y {
-display: block;
-max-height: 200px;
-overflow-y: auto;
--ms-overflow-style: -ms-autohiding-scrollbar;
-}
+            display: block;
+            max-height: 200px;
+            overflow-y: auto;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
 
-     th {
-      background-color: #588c7e;
-      color: white;
-       }
-     tr:nth-child(even) {background-color: #f2f2f2}
+        th {
+            background-color: #588c7e;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
     </style>
 
     <title>Map</title>
@@ -113,12 +122,12 @@ overflow-y: auto;
                        // $row = $result->fetch_assoc();
                         // $lat = $row["lat"] ;
                         // $lng = $row["lng"];
-    
-                        $lat = 13.796472 ;
-                        $lng = 100.324027;
+    //13.795935, 100.322993
+                        // $lat = 13.796472 ;
+                        // $lng = 100.324027;
                         ?>
-                        lat: 13.796472,
-                        lng: 100.324027
+                        lat: 13.795935,
+                        lng: 100.322993
                     },
                     zoom: 18,
                 }
@@ -142,16 +151,19 @@ overflow-y: auto;
                                 info.open(maps, marker);
                             }
                         })(marker, i));
+  
+                        info.setContent(item.name);
+                        info.open(maps, marker);
                     });
                 });
 
- 
+
 
                 //////////////////// PolyLine /////////////////////////////////////////////
 
                 var flightPlanCoordinates = [];
-                $.getJSON("datajson2.json",function (json) {
-                 // flightPath.setMap(null);
+                $.getJSON("datajson.json", function (json) {
+                    // flightPath.setMap(null);
                     for (var i = 0; i < json.length; i++) {
                         var latLng = new google.maps.LatLng((json[i].lat), (json[i].lng));
                         flightPlanCoordinates.push(latLng);
@@ -172,13 +184,13 @@ overflow-y: auto;
 
                     });
                     flightPath.setMap(maps);
-                    
+
                 });
 
             }
-
         </script>
-        <script async defer <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvKYJq_cHLpj6GOfvZghyNgLoy1Da3quk&callback=initMap">
+        <script async defer <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvKYJq_cHLpj6GOfvZghyNgLoy1Da3quk&callback=initMap">
         </script>
 
 
@@ -189,8 +201,7 @@ overflow-y: auto;
         // error_reporting(E_ERROR | E_PARSE);
         error_reporting(0);
    
-  $mysqli = NEW MySQLi("localhost", "root", "", "map");
-   $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 0 ");
+  
  ?>
 
         <!-- /////////////////////////////////////////////////// select //////////////////////////////// -->
@@ -199,6 +210,10 @@ overflow-y: auto;
             <select name="MAC">
                 <option disabled selected value> -- Select -- </option>
                 <?php
+
+$mysqli = NEW MySQLi("localhost", "root", "", "map");
+$Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) > 1 ");
+
    while($row = $Mac->fetch_assoc())
    {
     $mac = $row['src']; 
@@ -221,102 +236,160 @@ overflow-y: auto;
 
         <div id="over_map" class="table-wrapper-scroll-y">
 
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th>MAC that detect all devices</th>
-                </tr>
-                <?php
-                flush();
-     $conn = mysqli_connect("localhost", "root", "", "map");
-     // Check connection
-     if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-     }
-
- 
-
-     $result_row = mysqli_query($conn,"SELECT DISTINCT name FROM maping");
-     $num_rows = mysqli_num_rows($result_row);
-
-
-     $sql = "SELECT src , COUNT(DISTINCT name ) FROM info GROUP BY src HAVING COUNT(DISTINCT name ) >= $num_rows ";
-     $result = $conn->query($sql);
-     if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["src"] . "</td><tr>";
-       
-   }
-   //echo "</table>";
-   } else { echo "0 results"; }
-   $conn->close();
-
-
- 
-   ?>
-            </table>
+        
 
         </div>
 
-        <form>
-            <div class="form-group" action="" method="get">
-                <label>Select Time</label>
-                <input type="Start_Time" name="Start_Time" class="form-control" id="Start_Time" value="" placeholder="HH.MM">
 
-            </div>
-            <div class="form-group">
-                <input type="End_Time" name="End_Time" class="form-control" id="End_Time" value="" placeholder="HH.MM">
-
-            </div>
-
-            <div class="form-group">
-                <input type="Date" name="Date" class="form-control" id="Date" value="" placeholder="YYYY-MM-DD">
-
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-        </form>
-
-        <?php $a =  $_GET['Start_Time']; ?>
-        <?php $b =  $_GET['End_Time']; ?>
-        <?php $c =  $_GET['Date']; ?>
         <!--////////////////////////////////////////////////   table    /////////////////////////////////////////////////////////// -->
 
 
         <div id="over_map2" class="table-wrapper-scroll-y">
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th>In Between Time</th>
-                    <?php echo "$a - $b" ;?>
-                </tr>
+
+
+            <form action="#" method="post">
                 <?php
-                flush();
+
+
 $conn = mysqli_connect("localhost", "root", "", "map");
-// Check connection
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
+$name = "SELECT name  FROM maping ";
+$result = $conn->query($name);
+$a = 0;
+    while($row = $result->fetch_assoc())
+    {
+      
+    $name = $row['name']; 
+    echo "<div class='checkbox'>";
+    echo "<label><input type='checkbox' name='check_list[$a]' value='$name'>$name</label>";
+    echo"</div>";
+    $a = $a+1;
+    }
+    
+  ?>
+<input type="submit" name="submit1" value="Submit" />
+            </form>
+
+
+
+            <?php
+                      $i = 0;
+if(isset($_POST['submit1']))
+
+{//to run PHP script on submit
+if(!empty($_POST['check_list'])){
+// Loop to store and display values of individual checked checkbox.
+foreach($_POST['check_list'] as $selected[$i]){
+//echo $selected[$i]."</br>";
+$i=$i+1;
+}
 }
 
-// $sql = "SELECT src  FROM info WHERE recDate LIKE '$c'  AND recTime BETWEEN $a AND $b  GROUP BY src  ";
-$sql = "SELECT src  FROM info WHERE    recTime BETWEEN $a AND $b AND recDate = '$c'  GROUP BY src  ";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-// output data of each row
-while($row = $result->fetch_assoc()) {
-echo "<tr><td>" . $row["src"] . "</td><tr>";
+$connn = mysqli_connect("localhost", "root", "", "map");
+$result_row = mysqli_query($connn,"SELECT DISTINCT name FROM info");
+$num_rows = mysqli_num_rows($result_row);
+
+//////////////////////////////////////////////////////////////
+
+for($i=0;$i<=sizeof($selected);$i++){
+
+$strSQL = "SELECT lat,lng FROM maping WHERE name LIKE '$selected[$i]'";
+
+$objQuery = mysqli_query($connn,$strSQL);
+
 
 }
-//echo "</table>";
-} else { echo "0 results"; }
-$conn->close();
+
+while($obResult = mysqli_fetch_assoc($objQuery))
+{
+array_push($resultArray, $obResult);
+}
+
+
+$json =  json_encode($resultArray);
+file_put_contents('datajson.json', $json);
+
+
+////////////////////////////////////////////////////////////
+
+
+
+if(sizeof($selected)==1){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]'";
+echo "</br>"."</br>".$selected[0];
+}
+
+if(sizeof($selected)==2){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]')  ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1];
+}
+
+if(sizeof($selected)==3){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2];
+}
+
+if(sizeof($selected)==4){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]') ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3];
+}
+
+if(sizeof($selected)==5){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4];
+}
+
+if(sizeof($selected)==6){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5];
+}
+
+if(sizeof($selected)==7){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[6]') ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6];
+}
+
+if(sizeof($selected)==8){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[6]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[7]') ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7];
+}
+
+if(sizeof($selected)==9){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[6]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[7]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[8]') ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7]."<-->".$selected[8];
+}
+
+if(sizeof($selected)==10){
+$sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[6]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[7]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[8]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[9]') ";
+echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7]."<-->".$selected[8]."<-->".$selected[9];
+}
+
+}
+
 ?>
-            </table>
+
         </div>
 
-<?php
+        <div id="over_map3" class="table-wrapper-scroll-y">
+        <table class="table table-bordered table-striped">
+        <?php
+        $result = $connn->query($sql);
+        if ($result->num_rows > 0) {
+         // output data of each rows
+         echo "</br>" ;
+         while($row = $result->fetch_assoc()) {
+             
+           echo  "<tr><td>" . $row["src"] . "</td><tr>" ;
+          
+        }
+        
+        } else { echo "0 results";}
+        $connn->close();
 error_reporting(0);
+
 ?>
+</table>
+</div>
+
     </body>
 
 </html>
