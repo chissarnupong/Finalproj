@@ -10,4 +10,14 @@ $result = $conn->query($sql);
 $conn->close();
 
 
+function Redirect($url, $permanent = false)
+{
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
+
+    exit();
+}
+
+Redirect('/googleapi/index.php', false);
+
+
 ?>

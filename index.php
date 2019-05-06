@@ -49,8 +49,8 @@
 
         #over_map3 {
             position: absolute;
-            top: 480px;
-            left: 10px;
+            top: 300px;
+            left: 110px;
             z-index: 99;
         }
     </style>
@@ -122,7 +122,7 @@
                        // $row = $result->fetch_assoc();
                         // $lat = $row["lat"] ;
                         // $lng = $row["lng"];
-    //13.795935, 100.322993
+                        //13.795935, 100.322993
                         // $lat = 13.796472 ;
                         // $lng = 100.324027;
                         ?>
@@ -244,7 +244,7 @@ $Mac = $mysqli->query("SELECT DISTINCT src , COUNT(DISTINCT name ) FROM info GRO
         <!--////////////////////////////////////////////////   table    /////////////////////////////////////////////////////////// -->
 
 
-        <div id="over_map2" class="table-wrapper-scroll-y">
+        <div id="over_map2" >
 
 
             <form action="#" method="post">
@@ -315,52 +315,52 @@ file_put_contents('datajson.json', $json);
 
 if(sizeof($selected)==1){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]'";
-echo "</br>"."</br>".$selected[0];
+echo "Select : ".$selected[0];
 }
 
 if(sizeof($selected)==2){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]')  ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1];
+echo "Select : ".$selected[0]."<-->".$selected[1];
 }
 
 if(sizeof($selected)==3){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2];
+echo "Select : ".$selected[0]."<-->".$selected[1]."<-->".$selected[2];
 }
 
 if(sizeof($selected)==4){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]') ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3];
+echo "Select : ".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3];
 }
 
 if(sizeof($selected)==5){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4];
+echo "Select : ".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4];
 }
 
 if(sizeof($selected)==6){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5];
+echo "Select : ".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5];
 }
 
 if(sizeof($selected)==7){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[6]') ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6];
+echo "Select : ".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6];
 }
 
 if(sizeof($selected)==8){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[6]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[7]') ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7];
+echo "Select : ".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7];
 }
 
 if(sizeof($selected)==9){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[6]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[7]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[8]') ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7]."<-->".$selected[8];
+echo "Select : ".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7]."<-->".$selected[8];
 }
 
 if(sizeof($selected)==10){
 $sql = "SELECT *  FROM info WHERE name LIKE '$selected[0]' and src IN (SELECT src  FROM info WHERE name LIKE '$selected[1]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[2]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[3]')and src IN (SELECT src  FROM info WHERE name LIKE '$selected[4]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[5]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[6]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[7]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[8]') and src IN (SELECT src  FROM info WHERE name LIKE '$selected[9]') ";
-echo "</br>"."</br>".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7]."<-->".$selected[8]."<-->".$selected[9];
+echo "Select : ".$selected[0]."<-->".$selected[1]."<-->".$selected[2]."<-->".$selected[3]."<-->".$selected[4]."<-->".$selected[5]."<-->".$selected[6]."<-->".$selected[7]."<-->".$selected[8]."<-->".$selected[9];
 }
 
 }

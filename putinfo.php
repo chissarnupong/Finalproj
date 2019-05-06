@@ -209,7 +209,7 @@
               //echo "timeF  : ".$timeFloat."<br>";
             //}
             if ($clientName!=""&&$dateTime!=""&&$recTime!=""&&$channel!=""&&$signal!=""&&$src!="") {
-              if(intval($signal)>-100){ //add signal strength filter
+              if(intval($signal)>-80){ //add signal strength filter
                 echo "Client Name        : ".$clientName."<br>";
                 echo "Recieved Date      : ".$dateTime."<br>";
                 echo "Recieved Timestamp : ".$recTime."<br>";
@@ -275,6 +275,16 @@
       }
 
   }
+
+  function Redirect($url, $permanent = false)
+  {
+      header('Location: ' . $url, true, $permanent ? 301 : 302);
+  
+      exit();
+  }
+  
+  Redirect('/googleapi/index.php', false);
+
    ?>
 </body>
 </html>

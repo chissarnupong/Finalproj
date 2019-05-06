@@ -1,0 +1,387 @@
+# feb/15/2019 22:23:36 by RouterOS 6.43.8
+# software id = D7RG-H8FB
+#
+Flags: E - crc-error 
+ 0   time=0.236 interface=wlan1 channel="2417/20/gn" 
+     signal-at-rate=-88dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=B8:C7:4A:F9:63:71 
+     type=probe-req 
+
+ 1   time=0.736 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-93dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=40:B8:37:CD:AC:21 
+     type=probe-req 
+
+ 2   time=0.905 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-84dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=B8:C7:4A:F9:63:71 
+     type=probe-req 
+
+ 3   time=0.905 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-88dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=B8:C7:4A:F9:63:71 
+     type=probe-req 
+
+ 4   time=1.199 interface=wlan1 channel="2437/20/gn" 
+     signal-at-rate=-75dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:86:9E:71 
+     type=probe-req 
+
+ 5   time=1.287 interface=wlan1 channel="2442/20/gn" 
+     signal-at-rate=-71dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:F5:BC:C8 
+     type=probe-req 
+
+ 6   time=1.375 interface=wlan1 channel="2442/20/gn" 
+     signal-at-rate=-72dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:31:79:92 
+     type=probe-req 
+
+ 7   time=1.552 interface=wlan1 channel="2447/20/gn" 
+     signal-at-rate=-73dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:D6:2C:B0 
+     type=probe-req 
+
+ 8   time=1.577 interface=wlan1 channel="2447/20/gn" 
+     signal-at-rate=-73dBm@6Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:D6:2C:B0 
+     type=probe-req 
+
+ 9   time=1.64 interface=wlan1 channel="2447/20/gn" signal-at-rate=-76dBm@1Mbps 
+     dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:EE:3E:45 type=probe-req 
+
+10   time=1.726 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-74dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:16:FA:6D 
+     type=probe-req 
+
+11   time=1.903 interface=wlan1 channel="2457/20/gn" 
+     signal-at-rate=-78dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:2E:5D:3D 
+     type=probe-req 
+
+12   time=7.148 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-80dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=FA:A6:39:93:4C:33 
+     type=probe-req 
+
+13   time=7.565 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-63dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=7E:E5:3E:E7:A7:75 
+     type=probe-req 
+
+14   time=9.427 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-87dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=94:35:0A:39:78:76 
+     type=probe-req 
+
+15   time=9.468 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-88dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=94:35:0A:39:78:76 
+     type=probe-req 
+
+16   time=9.552 interface=wlan1 channel="2417/20/gn" 
+     signal-at-rate=-88dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=94:35:0A:39:78:76 
+     type=probe-req 
+
+17   time=10.092 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-89dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=9A:D1:A5:E3:CA:9E 
+     type=probe-req 
+
+18   time=10.113 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-83dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=9A:D1:A5:E3:CA:9E 
+     type=probe-req 
+
+19   time=10.245 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-86dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=EA:1B:08:16:D4:A2 
+     type=probe-req 
+
+20   time=10.269 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-93dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=EA:1B:08:16:D4:A2 
+     type=probe-req 
+
+21   time=12.574 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-44dBm@6Mbps dst=FF:FF:FF:FF:FF:FF src=78:0C:B8:21:6E:F7 
+     type=probe-req 
+
+22   time=12.574 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-43dBm@6Mbps dst=FF:FF:FF:FF:FF:FF src=78:0C:B8:21:6E:F7 
+     type=probe-req 
+
+23   time=15.029 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-81dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=46:AE:CB:F2:68:8A 
+     type=probe-req 
+
+24   time=15.6 interface=wlan1 channel="2447/20/gn" signal-at-rate=-89dBm@1Mbps 
+     dst=FF:FF:FF:FF:FF:FF src=CA:47:56:35:E1:95 type=probe-req 
+
+25   time=18.088 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-88dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=82:99:2A:DB:F1:CB 
+     type=probe-req 
+
+26   time=18.092 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-89dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:A4:3F:FE 
+     type=probe-req 
+
+27   time=18.11 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-88dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=82:99:2A:DB:F1:CB 
+     type=probe-req 
+
+28   time=18.137 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-89dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:A4:3F:FE 
+     type=probe-req 
+
+29   time=19.461 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-79dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=BE:97:03:E7:F0:C4 
+     type=probe-req 
+
+30   time=19.488 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-84dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=BE:97:03:E7:F0:C4 
+     type=probe-req 
+
+31   time=19.516 interface=wlan1 channel="2432/20/gn" 
+     signal-at-rate=-78dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=BE:97:03:E7:F0:C4 
+     type=probe-req 
+
+32   time=23.22 interface=wlan1 channel="2462/20/gn" 
+     signal-at-rate=-76dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+33   time=23.224 interface=wlan1 channel="2462/20/gn" 
+     signal-at-rate=-73dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+34   time=23.232 interface=wlan1 channel="2462/20/gn" 
+     signal-at-rate=-76dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+35   time=25.899 interface=wlan1 channel="2417/20/gn" 
+     signal-at-rate=-82dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=02:B8:79:51:CE:55 
+     type=probe-req 
+
+36   time=26 interface=wlan1 channel="2422/20/gn" signal-at-rate=-75dBm@1Mbps 
+     dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:AC:1A:D6 type=probe-req 
+
+37   time=26.02 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-79dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:AC:1A:D6 
+     type=probe-req 
+
+38   time=26.027 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-84dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=02:B8:79:51:CE:55 
+     type=probe-req 
+
+39   time=26.063 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-73dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:AC:1A:D6 
+     type=probe-req 
+
+40   time=26.105 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-60dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:AC:1A:D6 
+     type=probe-req 
+
+41   time=26.112 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-86dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=02:B8:79:51:CE:55 
+     type=probe-req 
+
+42   time=26.147 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-61dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:AC:1A:D6 
+     type=probe-req 
+
+43   time=26.171 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-74dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:AC:1A:D6 
+     type=probe-req 
+
+44   time=26.213 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-74dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DA:A1:19:AC:1A:D6 
+     type=probe-req 
+
+45   time=28.584 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-90dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=90:06:28:2B:CC:61 
+     type=probe-req 
+
+46   time=28.661 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-76dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=8C:FA:BA:DD:7B:B0 
+     type=probe-req 
+
+47   time=28.68 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-89dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=8C:FA:BA:DD:7B:B0 
+     type=probe-req 
+
+48   time=30.396 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-88dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=92:89:C8:6D:72:58 
+     type=probe-req 
+
+49   time=30.442 interface=wlan1 channel="2417/20/gn" 
+     signal-at-rate=-89dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=92:89:C8:6D:72:58 
+     type=probe-req 
+
+50   time=30.9 interface=wlan1 channel="2427/20/gn" signal-at-rate=-84dBm@1Mbps 
+     dst=FF:FF:FF:FF:FF:FF src=74:C6:3B:2F:7A:CB type=probe-req 
+
+51   time=30.954 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-82dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=74:C6:3B:2F:7A:CB 
+     type=probe-req 
+
+52   time=30.972 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-99dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=74:C6:3B:2F:7A:CB 
+     type=probe-req 
+
+53   time=31.003 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-82dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=74:C6:3B:2F:7A:CB 
+     type=probe-req 
+
+54   time=31.017 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-85dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=90:06:28:2B:CC:61 
+     type=probe-req 
+
+55   time=32.666 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-81dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=00:88:65:8C:CA:15 
+     type=probe-req 
+
+56   time=32.677 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-80dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=00:88:65:8C:CA:15 
+     type=probe-req 
+
+57   time=34.24 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-89dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=DE:09:A2:4E:05:29 
+     type=probe-req 
+
+58   time=47.226 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-82dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=6A:D6:94:07:9F:1C 
+     type=probe-req 
+
+59   time=48.178 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-87dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=1E:83:56:7B:B8:8F 
+     type=probe-req 
+
+60   time=49.263 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-79dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+61   time=49.271 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-82dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+62   time=49.291 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-80dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+63   time=49.306 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-71dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+64   time=49.319 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-70dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+65   time=49.339 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-69dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+66   time=49.369 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-67dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+67   time=49.38 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-63dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+68   time=49.408 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-71dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+69   time=49.411 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-66dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+70   time=49.429 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-75dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+71   time=49.458 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-68dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+72   time=49.462 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-68dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+73   time=49.472 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-73dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+74   time=49.479 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-74dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+75   time=49.507 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-67dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+76   time=49.511 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-68dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+77   time=49.519 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-65dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=28:FA:A0:C7:9A:3E 
+     type=probe-req 
+
+78   time=51.161 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-87dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=2E:0E:90:00:28:CF 
+     type=probe-req 
+
+79   time=52.567 interface=wlan1 channel="2442/20/gn" 
+     signal-at-rate=-61dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=7E:E5:3E:E7:A7:75 
+     type=probe-req 
+
+80   time=56.548 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-81dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=0C:25:76:10:69:E7 
+     type=probe-req 
+
+81   time=56.558 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-81dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=0C:25:76:10:69:E7 
+     type=probe-req 
+
+82   time=56.606 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-84dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=0C:25:76:10:69:E7 
+     type=probe-req 
+
+83   time=56.608 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-86dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=0C:25:76:10:69:E7 
+     type=probe-req 
+
+84   time=56.619 interface=wlan1 channel="2427/20/gn" 
+     signal-at-rate=-91dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=0C:25:76:10:69:E7 
+     type=probe-req 
+
+85   time=58.286 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-80dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=E2:E1:DE:6B:93:35 
+     type=probe-req 
+
+86   time=58.306 interface=wlan1 channel="2412/20/gn" 
+     signal-at-rate=-81dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=E2:E1:DE:6B:93:35 
+     type=probe-req 
+
+87   time=58.591 interface=wlan1 channel="2422/20/gn" 
+     signal-at-rate=-89dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=B2:3D:28:B8:3C:DC 
+     type=probe-req 
+
+88   time=59.854 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-82dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=F4:42:8F:B3:97:E7 
+     type=probe-req 
+
+89   time=59.855 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-81dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=F4:42:8F:B3:97:E7 
+     type=probe-req 
+
+90   time=59.894 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-79dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=F4:42:8F:B3:97:E7 
+     type=probe-req 
+
+91   time=59.938 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-86dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=F4:42:8F:B3:97:E7 
+     type=probe-req 
+
+92   time=59.977 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-83dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=F4:42:8F:B3:97:E7 
+     type=probe-req 
+
+93   time=59.979 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-82dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=F4:42:8F:B3:97:E7 
+     type=probe-req 
+
+94   time=60.017 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-78dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=F4:42:8F:B3:97:E7 
+     type=probe-req 
+
+95   time=60.018 interface=wlan1 channel="2452/20/gn" 
+     signal-at-rate=-78dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=F4:42:8F:B3:97:E7 
+     type=probe-req 
+
+96   time=60.089 interface=wlan1 channel="2457/20/gn" 
+     signal-at-rate=-82dBm@1Mbps dst=FF:FF:FF:FF:FF:FF src=4C:DD:31:97:75:F8 
+     type=probe-req 
